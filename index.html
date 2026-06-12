@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Alysson Breves Portifolio</title>
+</head>
+<body>
+  <header>
+    <h1>Alysson Breves</h1>
+    <nav>
+      <div class="links">
+          <a href="#habilidades">
+             <span>Habilidades</span>
+          </a>
+
+          <a href="#sobre">
+             <span>Sobre</span>
+          </a>
+
+          <a href="#contato">
+            <span>Contato</span>
+          </a>
+      </div> 
+    </nav>
+
+    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+  </header>
+
+  <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>Olá! Sou Alysson Breves, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="foto">
+        <img src="imagens/fotoperfil.jpg" alt="Alysson Breves">
+      </div>
+    </section>
+  
+  <section id="habilidades" class="seção-habilidades">
+    <h2>Habilidades</h2>
+    
+    <div class="blocos-habilidade">
+      <div class="habilidade">
+        <img src="imagens/html.png" alt="HTML">
+        <span>HTML</span>
+      </div>
+
+      <div class="habilidade">
+        <img src="imagens/css.png" alt="CSS">
+        <span>CSS</span>
+      </div>
+
+      <div class="habilidade">
+        <img src="imagens/javascript.png" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+
+      <div class="habilidade">
+        <img src="imagens/react.png" alt="React">
+        <span>React</span>
+      </div>
+
+      <div class="habilidade">
+        <img src="imagens/python.png" alt="Python">
+        <span>Python</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <article>
+      <h3>Projeto 1: Aplicativo de Tarefas</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nobis soluta itaque magni illum neque animi quos a deleniti dolore?</p>
+      <a href="project1.html" rel="noopener noreferrer" target="_blank">Ver Projeto</a>
+    </article>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="Links">
+      <a href="http://github.com/BrevesLT" target="_blank" rel="noopener noreferrer">
+        <span>GitHub</span>
+      </a>
+
+      <a href="http://linkedin.com/in/alyssonbreves" target="_blank" rel="noopener noreferrer">
+        <span>LinkedIn</span>
+      </a>
+
+      <a href="mailto:alyssonbrevesti@gmail.com">
+        <span>Email</span>
+      </a>
+    </div>
+    <div class="formulario-contato">
+      <form>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Alysson Breves. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
