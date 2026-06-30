@@ -5,8 +5,6 @@
   --fourth-color: #acd0f5;
   --toggle-color: #ffffff;
   --text-color: #ffffff;
-
-  
 }
 
 :root.light {
@@ -49,7 +47,6 @@ header nav .links a {
   margin-left: 50px;
   font-size: 23px;
   font-weight: bold;
-  
 }
 
 header nav .links a:hover {
@@ -98,7 +95,6 @@ header nav .links a:hover {
 .habilidades-texto h1 {
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .blocos-habilidade {
@@ -280,71 +276,6 @@ footer {
   box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 960px) {
-  header {
-    flex-direction: column;
-  }
-
-  header nav .links {
-    margin-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  #sobre {
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-
-  .sobre-texto {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .sobre-foto img {
-    width: 300px;
-    height: auto;
-    margin-top: 20px;
-  }
-
-  .seção-habilidades {
-    margin: 10px;
-  }
-  
-  .blocos-habilidade {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-  }
-
-  .habilidade {
-    margin: 10px;
-  }
-
-  .blocos-habilidade img {
-    margin-bottom: 20px;
-  }
-
-  #projetos {
-    margin: 20px;
-  }
-
-
-  #contato {
-    margin: 20px;
-  }
-  #contato h1 {
-    text-align: center;
-  }
-  .contato-content {
-    flex-direction: column;
-  }
-  .formulario-contato {
-    margin: 20px
-  }
-
-}
 
 @media (max-width: 1550px) {
   header {
@@ -369,5 +300,114 @@ footer {
 
   #contato h1 {
     text-align: center;
+  }
+}
+
+@media (max-width: 960px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1 {
+    text-align: center;
+  }
+
+  header nav .links {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  header nav .links a {
+    margin-left: 0; 
+    font-size: 20px;
+  }
+
+  #sobre {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .sobre-texto {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .sobre-foto img {
+    width: 250px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .seção-habilidades {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .blocos-habilidade {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .habilidade {
+    margin: 10px;
+  }
+
+  .blocos-habilidade img {
+    margin-bottom: 20px;
+  }
+
+  #projetos {
+    margin: 20px;
+  }
+
+  #contato {
+    margin: 20px;
+  }
+  
+  .contato-content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .formulario-contato {
+    margin: 20px 0 0 0; 
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header nav .links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .projetos-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .projetos-conteudo a {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+
+  .contato-links a {
+    width: 100%;
+    max-width: 250px;
   }
 }
