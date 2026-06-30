@@ -1,7 +1,21 @@
 :root {
-  --primary-color: #1e4277;
-  --secondary-color: #445c70;
+  --primary-color: #002152;
+  --secondary-color: #16232e;
+  --tertiary-color: rgb(0, 174, 255);
+  --fourth-color: #acd0f5;
+  --toggle-color: #ffffff;
   --text-color: #ffffff;
+
+  
+}
+
+:root.light {
+  --primary-color: #ffffff;
+  --secondary-color: rgb(74, 126, 150);
+  --tertiary-color: #007bff;
+  --fourth-color: #acd0f5;
+  --toggle-color: #16232e;
+  --text-color: #000000;
 }
 
 body {
@@ -19,29 +33,38 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
+  height: auto;
   border-radius: 7px;
-  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
 }
 header h1 {
+  color: var(--text-color);
   text-align: left;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 28px;
 }
 
 header nav .links a {
   color: var(--text-color);
+  background-color: transparent;
   text-decoration: none;
   margin-left: 50px;
   font-size: 23px;
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   
 }
 
 header nav .links a:hover {
-  color: var(--secondary-color);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  color: var(--tertiary-color);
+}
+
+#theme-toggle {
+  background-color: var(--toggle-color);
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #sobre {
@@ -62,13 +85,14 @@ header nav .links a:hover {
   width: 300px;
   height: auto;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px rgb(0, 174, 255);
+  margin-left: 20px;
+  box-shadow: 0px 0px 10px var(--tertiary-color);
 }
 
 .seção-habilidades {
   margin: 40px 300px;
   padding: 20px;
-  border-top: 5px dotted rgb(0, 174, 255);
+  border-top: 5px dotted var(--tertiary-color);
 }
 
 .habilidades-texto h1 {
@@ -79,9 +103,14 @@ header nav .links a:hover {
 
 .blocos-habilidade {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 20px;
   padding: 20px;
+}
+
+.habilidade {
+  margin: 10px;
 }
 
 .blocos-habilidade img {
@@ -98,9 +127,247 @@ header nav .links a:hover {
   font-size: 16px;
   font-weight: bold;
   color: var(--text-color);
-  border: 2px solid rgb(0, 174, 255);
+  border: 2px solid var(--tertiary-color);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgb(0, 174, 255);
+  box-shadow: 0px 0px 10px var(--tertiary-color);
   padding: 10px;
 }
 
+#projetos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 300px;
+  padding: 20px;
+  border-top: 5px dotted var(--tertiary-color);
+}
+
+.projetos-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px var(--tertiary-color);
+  max-height: 600px;
+}
+
+.projetos-container img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.projetos-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.projetos-conteudo p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.projetos-conteudo a {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  width: 350px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.projetos-conteudo a:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+#contato {
+  margin: 40px 300px;
+  padding: 20px;
+  border-top: 5px dotted var(--tertiary-color);
+}
+
+.contato-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contato-links {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.contato-links a {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  color: var(--text-color);
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.contato-links a:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.formulario-contato {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+  min-width: 600px;
+}
+
+.formulario-contato form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario-contato label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+}
+
+.formulario-contato button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.formulario-contato button:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
+footer {
+  background-color: var(--primary-color);
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 7px;
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 960px) {
+  header {
+    flex-direction: column;
+  }
+
+  header nav .links {
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #sobre {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .sobre-texto {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .sobre-foto img {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .seção-habilidades {
+    margin: 10px;
+  }
+  
+  .blocos-habilidade {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+
+  .habilidade {
+    margin: 10px;
+  }
+
+  .blocos-habilidade img {
+    margin-bottom: 20px;
+  }
+
+  #projetos {
+    margin: 20px;
+  }
+
+
+  #contato {
+    margin: 20px;
+  }
+  #contato h1 {
+    text-align: center;
+  }
+  .contato-content {
+    flex-direction: column;
+  }
+  .formulario-contato {
+    margin: 20px
+  }
+
+}
+
+@media (max-width: 1550px) {
+  header {
+    padding: 20px;
+  }
+
+  #sobre {
+    margin: 20px;
+  }
+
+  .seção-habilidades {
+    margin: 20px;
+  }
+
+  #projetos {
+    margin: 20px;
+  }
+
+  #contato {
+    margin: 20px;
+  }
+
+  #contato h1 {
+    text-align: center;
+  }
+}

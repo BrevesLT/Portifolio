@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+  />
+
   <script src="script.js" defer></script>
   <title>Alysson Breves Portifolio</title>
 </head>
@@ -28,17 +35,17 @@
       </div> 
     </nav>
 
-    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <button id="theme-toggle" aria-label="Toggle Theme">☀️</button>
   </header>
 
   <section id="sobre">
     <div class="sobre-texto">
       <h1>Sobre Mim</h1>
-      <p>Olá! Sou Alysson Breves, um desenvolvedor web apaixonado por criar experiências digitais incríveis.um desenvolvedor web apaixonado por criar experiências digitais incríveis.um desenvolvedor web apaixonado por criar experiências digitais incríveis.</p>
+      <p>Olá! Sou Alysson Breves, estudante de Ciência da Computação. Gosto de aprender e adquirir novas experiências. Meu foco está em construir projetos práticos e escaláveis para consolidar os conceitos aprendidos na faculdade e além.</p>
     </div>
-      <div class="sobre-foto">
-        <img src="imagens/fotoperfil.jpg" alt="Alysson Breves">
-      </div>
+    <div class="sobre-foto">
+      <img src="imagens/fotoperfil.jpg" alt="Alysson Breves">
+    </div>
     </section>
   
   <section id="habilidades" class="seção-habilidades">
@@ -75,26 +82,35 @@
   </section>
 
   <section id="projetos">
-    <h2>Projetos</h2>
-    <article>
-      <h3>Projeto 1: Aplicativo de Tarefas</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nobis soluta itaque magni illum neque animi quos a deleniti dolore?</p>
-      <a href="project1.html" rel="noopener noreferrer" target="_blank">Ver Projeto</a>
-    </article>
+    <h1>Projetos</h1>
+    <div class="projetos-container">
+      <article>
+        <h2>Projeto 1: Aplicativo de Tarefas</h2>
+        <div class="projetos-conteudo">
+          <img src="imagens/WIP.png" alt="Projeto 1">
+          <p>Trabalho em andamento...</p>
+          <a id="project1-link" href="project1.html" rel="noopener noreferrer" target="_blank">Ver Projeto</a>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section id="contato">
-    <h2>Contato</h2>
-    <div class="Links">
+    <h1>Contato</h1>
+    <div class="contato-content">
+      <div class="contato-links">
       <a href="http://github.com/BrevesLT" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
         <span>GitHub</span>
       </a>
 
       <a href="http://linkedin.com/in/alyssonbreves" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
         <span>LinkedIn</span>
       </a>
 
       <a href="mailto:alyssonbrevesti@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
         <span>Email</span>
       </a>
     </div>
@@ -111,6 +127,7 @@
 
         <button type="submit">Enviar</button>
       </form>
+    </div>
     </div>
   </section>
 
