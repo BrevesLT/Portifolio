@@ -146,8 +146,8 @@ header nav .links a:hover {
   max-height: 600px;
 }
 
-.projetos-container img {
-  width: 300px;
+#project1-link {
+  width: 900px;
   height: auto;
   border-radius: 10px;
 }
