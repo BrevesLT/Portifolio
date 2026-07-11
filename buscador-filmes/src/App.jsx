@@ -9,6 +9,7 @@ function App() {
   const [searched, setSearched] = useState(false);
   const [error, setError] = useState(null);
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [yearRange, setYearRange] = useState({ min: 1900, max: new Date().getFullYear() });
   const [year, setYear] = useState('');
   const [sortBy, setSortBy] = useState('title');
   const [rating, setRating] = useState(0);
@@ -53,7 +54,7 @@ function App() {
 
   const filteredMovies = movies.filter((movie) => {
     const matchesGenres = selectedGenres.length === 0 || selectedGenres.every((genre) => movie.genre_ids.includes(genre));
-    const matchesYear = !year || (movie.release_date && movie.release_date.startsWith(year));
+    const matchesYear = !movie.release_date || (parseInt(movie.release_date.slice(0, 4)) >= yearRange.min && parseInt(movie.release_date.slice(0, 4)) <= yearRange.max);
     const matchesRating = !rating || movie.vote_average >= rating;
     return matchesGenres && matchesYear && matchesRating;
   });
@@ -71,29 +72,33 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Buscador de Filmes</h1>
-      <div className="searchbar-container">
-        <input
-          type="text"
-          placeholder="Buscar filmes..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              fetchMovies();
-            }
-          }}
-        />
-        <button onClick={() => {
-          fetchMovies();
-        }}>
-          Buscar
-        </button>
-      </div>
+      <header className="app-header">
+        <h1 className="app-title">Buscador de Filmes</h1>
+        <div className="searchbar-container">
+          <input
+            type="text"
+            placeholder="Buscar filmes..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                fetchMovies();
+              }
+            }}
+            
+          />
+          <button onClick={() => {
+            fetchMovies();
+          }}>
+            Buscar
+          </button>
+        </div>
+      </header>
+      
 
       <div className="main-content">
         <aside className="filters-sidebar">
-          <h2>Filtros</h2>
+          <h2>Gênero</h2>
           <div className="genres-checkboxes">
             <label>
               <input type="checkbox" onChange={(e) => {
@@ -287,28 +292,50 @@ function App() {
             </label>
           </div>
           <div className="year-slider">
-            <label>Ano:</label>
-            <input
-              type="range"
-              min="1900"
-              max={new Date().getFullYear()}
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-            />
-            <span>{year || 'Todos'}</span>
+            <h2>Ano</h2>
+            
+            <div className="range-container">
+              <input
+                type="range"
+                min="1980"
+                max="2026"
+                value={yearRange.min}
+                onChange={(e) => {
+                  const value = Math.min(Number(e.target.value), yearRange.max - 1);
+                  setYearRange({ ...yearRange, min: value });
+                }}
+                className="thumb thumb-left"
+              />
+              <input
+                type="range"
+                min="1980"
+                max="2026"
+                value={yearRange.max}
+                onChange={(e) => {
+                  const value = Math.max(Number(e.target.value), yearRange.min + 1);
+                  setYearRange({ ...yearRange, max: value });
+                }}
+                className="thumb thumb-right"
+              />
+            </div>
+
+            <div className="slider-years-labels">
+              <span>{yearRange.min}</span>
+              <span>{yearRange.max}</span>
+            </div>
           </div>
           <div className="star-rating">
-            <label>Classificação:</label>
+            <h2>Classificação:</h2>
             <div className="stars">
-              <label> <input type="radio" name="rating" value="1" checked={rating === 1} onChange={() => setRating(1)} />⭐</label>
-              <label> <input type="radio" name="rating" value="2" checked={rating === 2} onChange={() => setRating(2)} />⭐⭐</label>
-              <label> <input type="radio" name="rating" value="3" checked={rating === 3} onChange={() => setRating(3)} />⭐⭐⭐</label>
-              <label> <input type="radio" name="rating" value="4" checked={rating === 4} onChange={() => setRating(4)} />⭐⭐⭐⭐</label>
-              <label> <input type="radio" name="rating" value="5" checked={rating === 5} onChange={() => setRating(5)} />⭐⭐⭐⭐⭐</label>
+              <label> <input type="radio" name="rating" value="1" checked={rating === 1} onChange={() => setRating(1) && fetchMovies()} />⭐+</label>
+              <label> <input type="radio" name="rating" value="2" checked={rating === 2} onChange={() => setRating(2) && fetchMovies()} />⭐⭐+</label>
+              <label> <input type="radio" name="rating" value="3" checked={rating === 3} onChange={() => setRating(3) && fetchMovies()} />⭐⭐⭐+</label>
+              <label> <input type="radio" name="rating" value="4" checked={rating === 4} onChange={() => setRating(4) && fetchMovies()} />⭐⭐⭐⭐+</label>
+              <label> <input type="radio" name="rating" value="5" checked={rating === 5} onChange={() => setRating(5) && fetchMovies()} />⭐⭐⭐⭐⭐+</label>
             </div>
           </div>
           <div className="sort-by">
-            <label>Ordenar por:</label>
+            <h2>Ordenar por:</h2>
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
               <option value="title">Título</option>
               <option value="release_date">Data de Lançamento</option>
@@ -334,15 +361,21 @@ function App() {
                       alt={movie.title}
                     />
                   ) : (
-                    <div className="no-poster">Sem poster disponível</div>
+                      <img
+                        src="./src/assets/noposter.png"
+                        alt="Sem poster disponível"
+                      />
                   )}
         
                 </div>
                 <div className="movie-info">
                   <h2>{movie.title}</h2>
                   <p>{movie.release_date ? movie.release_date.slice(0, 4) : 'Data não disponível'}</p>
-                  <span className="movie-genre">Gênero: {movie.genre_ids?.map((id) => genres[id]).join(', ') || 'Gênero não disponível'}</span>
-                  <span className="movie-rating"> ⭐{movie.vote_average.toFixed(1)}</span>
+                  <div className="movie-footer">
+                    <span className="movie-genre">{movie.genre_ids?.map((id) => genres[id]).join(', ') || 'Gênero não disponível'}</span>
+                    <span className="movie-rating"> ⭐{movie.vote_average.toFixed(1)}</span>
+                  </div>
+                  
 
                 </div>
     
