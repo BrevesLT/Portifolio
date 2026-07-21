@@ -137,16 +137,58 @@ header nav .links a:hover {
   padding: 20px;
   border-top: 5px dotted var(--tertiary-color);
 }
-
-.projetos-container {
+.slider-container {
+  display: flex;
+  position: relative;
   background-color: var(--secondary-color);
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px var(--tertiary-color);
-  max-height: 600px;
+  max-height: 700px;
+  width: 1000px;
+  overflow: hidden;
 }
 
-#project1-link {
+.projetos-container {
+  display: flex;
+  gap: 100px;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.projetos-container article {
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 1000px;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  opacity: 0.4;
+  color: var(--tertiary-color);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+.btn.next {
+  right: 10px;
+}
+
+.btn.prev {
+  left: 10px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+#project-link {
   width: 900px;
   height: auto;
   border-radius: 10px;
