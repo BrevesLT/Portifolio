@@ -217,10 +217,15 @@ header nav .links a:hover {
   padding: 10px;
   text-align: center;
 }
-
+.project-btn {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
 .projetos-conteudo a:hover {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  background-color: white;
+  color: black;
   text-decoration: none;
 }
 
